@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <stdlib.h> // Adicionado para usar malloc
+#include <stdlib.h> 
 
 typedef struct {
     int num;
@@ -64,7 +64,6 @@ void johnson_trotter(int array_size, Item lista[]) {
     while (iteracoes < max_iteracoes) {
         int pos_maior = procura_maior(lista, array_size);
         if (pos_maior == -1) {
-            // Não há mais trocas possíveis
             break;
         }
 
@@ -77,9 +76,9 @@ void johnson_trotter(int array_size, Item lista[]) {
             iteracoes++;
             imprime_permutacao(lista, array_size);
         } else {
-            // Inverte a direção se não houver uma troca possível na direção atual
+            
             lista[pos_maior].direcao = !lista[pos_maior].direcao;
-            imprime_permutacao(lista, array_size);  // Adicionado para imprimir a permutação atual
+            imprime_permutacao(lista, array_size);  
         }
     }
 }
@@ -87,8 +86,7 @@ void johnson_trotter(int array_size, Item lista[]) {
 int main() {
     int n;
     scanf("%d", &n);
-    
-    // Usando alocação dinâmica de memória
+
     Item *lista = (Item *)malloc(n * sizeof(Item));
 
     for (int i = 0; i < n; i++) {
